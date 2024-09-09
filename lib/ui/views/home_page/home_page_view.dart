@@ -20,9 +20,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.menu),
-            onPressed: () {
-              // Handle menu button press
-            },
+            onPressed: viewModel.menu,
           ),
           title: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -368,7 +366,6 @@ class HomePageView extends StackedView<HomePageViewModel> {
             ],
           ),
         ),
-
       ),
     );
   }

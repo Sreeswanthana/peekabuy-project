@@ -36,7 +36,8 @@ class ShoppingcartViewModel extends BaseViewModel {
   }
 
   // Open Razorpay checkout
-  void openCheckout(int amount, String shopName, String description, String contactNumber, String email) async {
+  void openCheckout(int amount, String shopName, String description,
+      String contactNumber, String email) async {
     var options = {
       'key': 'rzp_live_ILgsfZCZoFIKMb', // Replace with your Razorpay key
       'amount': amount * 100, // Amount in paise

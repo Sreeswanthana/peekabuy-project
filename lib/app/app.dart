@@ -12,6 +12,7 @@ import 'package:peeka/ui/views/favourite/favourite_view.dart';
 import 'package:peeka/ui/views/shoppingcart/shoppingcart_view.dart';
 import 'package:peeka/ui/views/account/account_view.dart';
 import 'package:peeka/ui/views/dasboard/dasboard_view.dart';
+import 'package:peeka/ui/views/menu/menu_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -26,6 +27,7 @@ import 'package:peeka/ui/views/dasboard/dasboard_view.dart';
     MaterialRoute(page: ShoppingcartView),
     MaterialRoute(page: AccountView),
     MaterialRoute(page: DasboardView),
+    MaterialRoute(page: MenuView),
 // @stacked-route
   ],
   dependencies: [

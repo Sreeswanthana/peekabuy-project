@@ -7,7 +7,7 @@ import 'package:stacked/stacked.dart';
 
 class DasboardViewModel extends BaseViewModel {
   int _currentIndex = 0;
-  List<Widget>Pages = [
+  List<Widget> Pages = [
     HomePageView(),
     FavouriteView(),
     ShoppingcartView(),
@@ -20,5 +20,4 @@ class DasboardViewModel extends BaseViewModel {
     _currentIndex = index;
     notifyListeners();
   }
-
 }

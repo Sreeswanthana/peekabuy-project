@@ -19,6 +19,9 @@ class HomePageViewModel extends BaseViewModel {
     _pageController.jumpToPage(page);
     notifyListeners();
   }
+  void menu() {
+    _navigationService.navigateTo('/menu-view');
+  }
 
   void onItemTapped(int index) {
     _selectedIndex = index;
@@ -26,7 +29,6 @@ class HomePageViewModel extends BaseViewModel {
     _pageController.jumpToPage(index);
     notifyListeners();
   }
-
 
   void startAutoScroll() {
     _timer?.cancel(); // Cancel any existing timer to prevent multiple timers

@@ -33,7 +33,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
 
   @override
   Widget build(BuildContext context) {
-    if (!isVisible) return Container(); // If not visible, return an empty container
+    if (!isVisible)
+      return Container(); // If not visible, return an empty container
 
     return Center(
       child: GestureDetector(
@@ -109,13 +110,12 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           Icons.star,
                           color: Colors.orange,
                           size: 18,
-                        ), Icon(
+                        ),
+                        Icon(
                           Icons.star,
                           color: Colors.orange,
                           size: 18,
                         ),
-
-
                         const SizedBox(width: 10),
                         const Text(
                           '(32 ratings)',
@@ -161,10 +161,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           ),
                           child: DropdownButton<String>(
                             value: 'Small',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black
-                            ),
+                            style: TextStyle(fontSize: 12, color: Colors.black),
                             underline: Container(),
                             items: ['Small', 'Medium', 'Large', 'Extra Large']
                                 .map((String size) {
@@ -191,8 +188,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           child: DropdownButton<int>(
                             value: 1,
                             underline: Container(),
-                            items: [1, 2, 3, 4]
-                                .map((int qty) {
+                            items: [1, 2, 3, 4].map((int qty) {
                               return DropdownMenuItem<int>(
                                 value: qty,
                                 child: Text(qty.toString()),
@@ -265,7 +261,8 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    isVisible = false; // Remove the item from view
+                                    isVisible =
+                                        false; // Remove the item from view
                                   });
                                 },
                               ),
@@ -284,4 +281,3 @@ class _ShoppingCartState extends State<ShoppingCart> {
     );
   }
 }
-

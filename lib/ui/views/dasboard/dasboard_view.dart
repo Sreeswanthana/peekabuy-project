@@ -14,9 +14,9 @@ class DasboardView extends StackedView<DasboardViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body:  IndexedStack(
+      body: IndexedStack(
         index: viewModel.currentIndex,
-        children:viewModel.Pages,
+        children: viewModel.Pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: viewModel.currentIndex,
@@ -27,7 +27,9 @@ class DasboardView extends StackedView<DasboardViewModel> {
         onTap: viewModel.setIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,),
+            icon: Icon(
+              Icons.home,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
@@ -42,7 +44,6 @@ class DasboardView extends StackedView<DasboardViewModel> {
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
-
         ],
       ),
     );

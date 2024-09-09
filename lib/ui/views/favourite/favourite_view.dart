@@ -17,14 +17,16 @@ class FavouriteView extends StackedView<FavouriteViewModel> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(onPressed: () {  }, icon:Icon(Icons.arrow_back_outlined),
-
-
-        ),
-          title: Text("Wishlist",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.arrow_back_outlined),
+          ),
+          title: Text(
+            "Wishlist",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+          ),
           centerTitle: true,
-
-      ),
+        ),
         body: Column(
           children: [
             verticalSpaceMedium,
@@ -63,40 +65,40 @@ class FavouriteView extends StackedView<FavouriteViewModel> {
               ),
             ),
             verticalSpaceMedium,
-    Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-     child:    Container(
-          height: 330,
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            children: [
-              Expanded(
-                child: Wishcart(
-                  image: 'assets/images/img_20.png',
-                  name: 'Alka',
-                  description: 'Green chinnon..',
-                  price: '945',
-                  discountPrice: '1565',
-                  offerPercentage: '41% off',
-                  rating: '4.5*',
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Container(
+                height: 330,
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Wishcart(
+                        image: 'assets/images/img_20.png',
+                        name: 'Alka',
+                        description: 'Green chinnon..',
+                        price: '945',
+                        discountPrice: '1565',
+                        offerPercentage: '41% off',
+                        rating: '4.5*',
+                      ),
+                    ),
+                    horizontalSpaceMedium,
+                    Expanded(
+                      child: Wishcart(
+                        image: 'assets/images/img_17.png',
+                        name: 'Western Laddy',
+                        description: 'Flounce Sleeveless',
+                        price: '5545',
+                        discountPrice: '115',
+                        offerPercentage: '60% off',
+                        rating: '5.5*',
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              horizontalSpaceMedium,
-              Expanded(
-                child: Wishcart(
-                  image: 'assets/images/img_17.png',
-                  name: 'Western Laddy',
-                  description: 'Flounce Sleeveless',
-                  price: '5545',
-                  discountPrice: '115',
-                  offerPercentage: '60% off',
-                  rating: '5.5*',
-                ),
-              ),
-            ],
-          ),
-        ),
-    ),
+            ),
           ],
         ),
       ),

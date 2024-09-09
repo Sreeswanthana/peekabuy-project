@@ -1,4 +1,3 @@
-
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import '../../../app/app.locator.dart';
@@ -17,9 +16,11 @@ class LoginViewModel extends BaseViewModel {
     _errorMessage = null; // Reset error message when checkbox is toggled
     notifyListeners();
   }
+
   void dash() {
     _navigationService.navigateTo('/dasboard-view');
   }
+
   void sign() {
     _navigationService.navigateTo('/sign-view');
   }

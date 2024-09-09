@@ -56,6 +56,7 @@ class SignViewModel extends BaseViewModel {
   void login() {
     _navigationService.navigateTo('/login-sign-view');
   }
+
   void dash() {
     _navigationService.navigateTo('/dasboard-view');
   }
