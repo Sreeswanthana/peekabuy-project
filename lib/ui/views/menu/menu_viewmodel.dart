@@ -1,3 +1,12 @@
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-class MenuViewModel extends BaseViewModel {}
+import '../../../app/app.locator.dart';
+
+class MenuViewModel extends BaseViewModel {
+  final _navigationService = locator<NavigationService>();
+
+  void search() {
+    _navigationService.navigateTo('/search-view');
+  }
+}

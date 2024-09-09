@@ -8,10 +8,10 @@ class MenuView extends StackedView<MenuViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      MenuViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    MenuViewModel viewModel,
+    Widget? child,
+  ) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -28,33 +28,233 @@ class MenuView extends StackedView<MenuViewModel> {
               child: Image.asset(
                 'assets/images/img.png', // Replace with your image asset path
                 height: 40.0,
-                width: MediaQuery.of(context).size.width * 0.5, // Responsive width
+                width:
+                    MediaQuery.of(context).size.width * 0.5, // Responsive width
               ),
             ),
           ),
           actions: [
             IconButton(
               icon: const Icon(Icons.search),
-              onPressed: () {
-                // Handle search icon press
-              },
+              onPressed: viewModel.search,
             ),
           ],
         ),
-        body: Container(
-          color: Colors.white, // White background for the container
-          padding: const EdgeInsets.all(10.0), // Add padding around the content
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              _buildListTile(context, 'Women', 'assets/images/img_30.png'),
-              _buildListTile(context, 'Men', 'assets/images/img_31.png'),
-              _buildListTile(context, 'Kids', 'assets/images/img_32.png'),
-              _buildListTile(context, 'Baby', 'assets/images/img_33.png'),
-              _buildListTile(context, 'Footwears', 'assets/images/img_34.png'),
-              _buildListTile(context, 'Accessories', 'assets/images/img_35.png'),
-              _buildListTile(context, 'Beauty', 'assets/images/img_36.png'),
-              _buildListTile(context, 'Jewellery', 'assets/images/img_37.png'),
-              _buildListTile(context, 'Sports', 'assets/images/img_39gi.png'),
+              Container(
+                color: Colors.white, // White background for the container
+                padding: const EdgeInsets.all(
+                    10.0), // Add padding around the content
+                child: Column(
+                  children: [
+                    _buildListTile(
+                        context, 'Women', 'assets/images/img_30.png'),
+                    _buildListTile(context, 'Men', 'assets/images/img_31.png'),
+                    _buildListTile(context, 'Kids', 'assets/images/img_32.png'),
+                    _buildListTile(context, 'Baby', 'assets/images/img_33.png'),
+                    _buildListTile(
+                        context, 'Footwears', 'assets/images/img_34.png'),
+                    _buildListTile(
+                        context, 'Accessories', 'assets/images/img_35.png'),
+                    _buildListTile(
+                        context, 'Beauty', 'assets/images/img_36.png'),
+                    _buildListTile(
+                        context, 'Jewellery', 'assets/images/img_37.png'),
+                    _buildListTile(
+                        context, 'Sports', 'assets/images/img_39.png'),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Left arrow icon
+                    const Icon(
+                      Icons.payments_outlined,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 160.0),
+                      child: const Text(
+                        "Payment Information",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Right side icon
+                    const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Left arrow icon
+                    const Icon(
+                      Icons.manage_accounts,
+                    ),
+                    // Center text
+                    Padding(
+                      padding: const EdgeInsets.only(right: 160.0),
+                      child: const Text(
+                        "Manage Account",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Right side icon
+                    const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Left arrow icon
+                    const Icon(
+                      Icons.settings_suggest,
+                    ),
+                    // Center text
+                    Padding(
+                      padding: const EdgeInsets.only(right: 160.0),
+                      child: const Text(
+                        "Peekabuy Suggests",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Right side icon
+                    const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Left arrow icon
+                    const Icon(
+                      Icons.settings_sharp,
+                    ),
+                    // Center text
+                    Padding(
+                      padding: const EdgeInsets.only(right: 230.0),
+                      child: const Text(
+                        "Settings",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Right side icon
+                    const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Left arrow icon
+                    const Icon(
+                      Icons.help_outline_sharp,
+                    ),
+                    // Center text
+                    Padding(
+                      padding: const EdgeInsets.only(right: 100.0),
+                      child: const Text(
+                        "Help us Improved the app",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Right side icon
+                    const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Left arrow icon
+                    const Icon(
+                      Icons.shopping_cart,
+                    ),
+                    // Center text
+                    Padding(
+                      padding: const EdgeInsets.only(right: 160.0),
+                      child: const Text(
+                        "Item Details",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Right side icon
+                    const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

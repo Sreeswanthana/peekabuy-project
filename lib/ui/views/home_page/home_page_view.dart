@@ -36,9 +36,8 @@ class HomePageView extends StackedView<HomePageViewModel> {
           actions: [
             IconButton(
               icon: const Icon(Icons.notifications),
-              onPressed: () {
+              onPressed: viewModel.nottification,
                 // Handle notification icon press
-              },
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
@@ -75,25 +74,32 @@ class HomePageView extends StackedView<HomePageViewModel> {
                 ),
               ),
               verticalSpaceSmall,
-              Container(
-                width:
-                    MediaQuery.of(context).size.width * 0.9, // Responsive width
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(80),
-                  border: Border.all(width: 1, color: Colors.grey),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search for brands product',
-                    border: InputBorder.none,
-                    prefixIcon: const Icon(Icons.search, color: Colors.grey),
-                    suffixIcon:
-                        const Icon(Icons.camera_alt, color: Colors.grey),
+              Center(
+                child: GestureDetector(
+                  onTap: viewModel
+                      .search, // Pass the function reference, not call it
+                  child: Container(
+                    width: MediaQuery.of(context).size.width *
+                        0.9, // Responsive width
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(80),
+                      border: Border.all(width: 1, color: Colors.grey),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search for brands product',
+                        border: InputBorder.none,
+                        prefixIcon:
+                            const Icon(Icons.search, color: Colors.grey),
+                        suffixIcon:
+                            const Icon(Icons.camera_alt, color: Colors.grey),
+                      ),
+                      enabled:
+                          false, // Disable input to make the search bar non-editable
+                    ),
                   ),
-                  enabled:
-                      false, // Disable input to make the search bar non-editable
                 ),
               ),
               verticalSpaceMedium,

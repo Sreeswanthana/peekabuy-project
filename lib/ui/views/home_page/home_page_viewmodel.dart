@@ -19,8 +19,17 @@ class HomePageViewModel extends BaseViewModel {
     _pageController.jumpToPage(page);
     notifyListeners();
   }
+
   void menu() {
     _navigationService.navigateTo('/menu-view');
+  }
+
+    void nottification() {
+      _navigationService.navigateTo('/nottification-view');
+    }
+
+  void search() {
+    _navigationService.navigateTo('/search-view');
   }
 
   void onItemTapped(int index) {
