@@ -226,16 +226,7 @@ class ShoppingcartView extends StackedView<ShoppingcartViewModel> {
             // Proceed to Payment Button
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  // Replace these values with actual data
-                  viewModel.openCheckout(
-                    1,
-                    'ShopName',
-                    'Test Description',
-                    '9999999999',
-                    'test@example.com',
-                  );
-                },
+                onPressed: viewModel.placeoder,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.orange, // Text color
@@ -262,10 +253,4 @@ class ShoppingcartView extends StackedView<ShoppingcartViewModel> {
   @override
   ShoppingcartViewModel viewModelBuilder(BuildContext context) =>
       ShoppingcartViewModel();
-
-  @override
-  void onViewModelReady(ShoppingcartViewModel viewModel) {
-    super.onViewModelReady(viewModel);
-    viewModel.initialize(); // Ensure Razorpay is initialized here
-  }
 }

@@ -37,7 +37,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
             IconButton(
               icon: const Icon(Icons.notifications),
               onPressed: viewModel.nottification,
-                // Handle notification icon press
+              // Handle notification icon press
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
@@ -226,14 +226,17 @@ class HomePageView extends StackedView<HomePageViewModel> {
                       child: Row(
                         children: [
                           Expanded(
-                            child: PopularPage(
-                              image: 'assets/images/img_15.png',
-                              name: 'Shein',
-                              description: 'Solid ruffle hem lace',
-                              price: '345',
-                              discountPrice: '765',
-                              offerPercentage: '40% off',
-                              rating: '4.5*',
+                            child: GestureDetector(
+                              onTap: viewModel.detailpage,
+                              child: PopularPage(
+                                image: 'assets/images/img_15.png',
+                                name: 'Shein',
+                                description: 'Solid ruffle hem lace',
+                                price: '345',
+                                discountPrice: '765',
+                                offerPercentage: '40% off',
+                                rating: '4.5*',
+                              ),
                             ),
                           ),
                           horizontalSpaceMedium,

@@ -16,6 +16,10 @@ import 'package:peeka/ui/views/menu/menu_view.dart';
 import 'package:peeka/ui/views/search/search_view.dart';
 import 'package:peeka/ui/views/jackets/jackets_view.dart';
 import 'package:peeka/ui/views/nottification/nottification_view.dart';
+import 'package:peeka/ui/views/detailpage/detailpage_view.dart';
+import 'package:peeka/ui/views/checkout/checkout_view.dart';
+import 'package:peeka/ui/views/myoder/myoder_view.dart';
+import 'package:peeka/ui/views/trackoder/trackoder_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -34,6 +38,10 @@ import 'package:peeka/ui/views/nottification/nottification_view.dart';
     MaterialRoute(page: SearchView),
     MaterialRoute(page: JacketsView),
     MaterialRoute(page: NottificationView),
+    MaterialRoute(page: DetailpageView),
+    MaterialRoute(page: CheckoutView),
+    MaterialRoute(page: MyoderView),
+    MaterialRoute(page: TrackoderView),
 // @stacked-route
   ],
   dependencies: [

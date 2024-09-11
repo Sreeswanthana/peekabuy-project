@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peeka/ui/views/nottification/nottificationcart.dart';
 import 'package:stacked/stacked.dart';
 
 import 'nottification_viewmodel.dart';
@@ -8,10 +9,10 @@ class NottificationView extends StackedView<NottificationViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      NottificationViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    NottificationViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Notification'),
@@ -25,15 +26,22 @@ class NottificationView extends StackedView<NottificationViewModel> {
       ),
       body: Column(
         children: [
-
+          NotificationCart(
+            names: 'Order Delivered!',
+            images: 'assets/imageanother/img.png',
+            description:
+                'Your Product Shein Light Peach Flounce Sleeve  Frill... has been delivered.',
+            days: ' 4 day ago',
+          )
         ],
       ),
-        // Add your notification content here
+      // Add your notification content here
     );
   }
 
   @override
   NottificationViewModel viewModelBuilder(
-      BuildContext context,
-      ) => NottificationViewModel();
+    BuildContext context,
+  ) =>
+      NottificationViewModel();
 }

@@ -87,7 +87,7 @@ class AccountView extends StackedView<AccountViewModel> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Accart(
-                  images: 'assets/images/img_40.png',
+                  images: 'assets/images/img_56.png',
                   names: 'My Orders',
                 ),
                 Accart(

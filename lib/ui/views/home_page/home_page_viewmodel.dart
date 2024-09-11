@@ -24,9 +24,13 @@ class HomePageViewModel extends BaseViewModel {
     _navigationService.navigateTo('/menu-view');
   }
 
-    void nottification() {
-      _navigationService.navigateTo('/nottification-view');
-    }
+  void nottification() {
+    _navigationService.navigateTo('/nottification-view');
+  }
+
+  void detailpage() {
+    _navigationService.navigateTo('/detailpage-view');
+  }
 
   void search() {
     _navigationService.navigateTo('/search-view');
