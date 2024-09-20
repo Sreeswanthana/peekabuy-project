@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peeka/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 
 import 'detailpage_viewmodel.dart';
@@ -124,9 +125,8 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                     Icon(Icons.star_border,
                                         color: Colors.grey,
                                         size: 16), // Empty star
-                                    SizedBox(
-                                        width:
-                                            5), // Spacing between stars and text
+                                    horizontalSpaceSmall,                            // Row of size options with containers
+// Spacing between stars and text
                                     Text(
                                       '32 ratings',
                                       style: TextStyle(
@@ -138,8 +138,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
-                            // Second Text: "Solid red ruffle hem lace insert top"
+verticalSpaceSmall,                            // Second Text: "Solid red ruffle hem lace insert top"
                             Text(
                               'Solid red ruffle hem lace insert top',
                               style: TextStyle(
@@ -147,8 +146,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                 color: Colors.grey[600],
                               ),
                             ),
-                            SizedBox(height: 10),
-                            // Price details: ₹379 ₹999 62% off
+verticalSpaceSmall,                            // Price details: ₹379 ₹999 62% off
                             Row(
                               children: [
                                 Text(
@@ -168,7 +166,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                     decoration: TextDecoration.lineThrough,
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                horizontalSpaceSmall,                            // Row of size options with containers
                                 Text(
                                   '62% off',
                                   style: TextStyle(
@@ -178,8 +176,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
-                            // Color selection title
+verticalSpaceSmall,                            // Color selection title
                             Text(
                               'Color',
                               style: TextStyle(
@@ -205,7 +202,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                horizontalSpaceSmall,                            // Row of size options with containers
                                 // Unselected color container
                                 Container(
                                   height: 30,
@@ -221,7 +218,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                horizontalSpaceSmall,                            // Row of size options with containers
                                 // Another unselected color container
                                 Container(
                                   height: 30,
@@ -239,7 +236,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            horizontalSpaceSmall,                            // Row of size options with containers
                             // Size selection title
                             Text(
                               'Select Size',
@@ -248,8 +245,7 @@ class DetailpageView extends StackedView<DetailpageViewModel> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 10),
-                            // Row of size options with containers
+horizontalSpaceSmall,                            // Row of size options with containers
                             Row(
                               children: [
                                 // Small size container

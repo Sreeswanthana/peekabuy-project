@@ -11,10 +11,13 @@ class HomePageView extends StackedView<HomePageViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    HomePageViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      HomePageViewModel viewModel,
+      Widget? child,
+      ) {
+    // Get screen size
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -28,8 +31,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
               child: Image.asset(
                 'assets/images/img.png', // Replace with your image asset path
                 height: 40.0,
-                width:
-                    MediaQuery.of(context).size.width * 0.5, // Responsive width
+                width: screenWidth * 0.5, // Responsive width
               ),
             ),
           ),
@@ -37,7 +39,6 @@ class HomePageView extends StackedView<HomePageViewModel> {
             IconButton(
               icon: const Icon(Icons.notifications),
               onPressed: viewModel.nottification,
-              // Handle notification icon press
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
@@ -53,10 +54,8 @@ class HomePageView extends StackedView<HomePageViewModel> {
             children: [
               ListTile(
                 leading: CircleAvatar(
-                  radius: MediaQuery.of(context).size.width *
-                      0.1, // Responsive radius
-                  backgroundImage: const AssetImage(
-                      'assets/images/img_5.png'), // Replace with your avatar image asset path
+                  radius: screenWidth * 0.1, // Responsive radius
+                  backgroundImage: const AssetImage('assets/images/img_5.png'),
                 ),
                 title: const Text(
                   'Hello sree swanthana!',
@@ -76,11 +75,9 @@ class HomePageView extends StackedView<HomePageViewModel> {
               verticalSpaceSmall,
               Center(
                 child: GestureDetector(
-                  onTap: viewModel
-                      .search, // Pass the function reference, not call it
+                  onTap: viewModel.search,
                   child: Container(
-                    width: MediaQuery.of(context).size.width *
-                        0.9, // Responsive width
+                    width: screenWidth * 0.9, // Responsive width
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
@@ -88,16 +85,13 @@ class HomePageView extends StackedView<HomePageViewModel> {
                       border: Border.all(width: 1, color: Colors.grey),
                     ),
                     child: TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Search for brands product',
                         border: InputBorder.none,
-                        prefixIcon:
-                            const Icon(Icons.search, color: Colors.grey),
-                        suffixIcon:
-                            const Icon(Icons.camera_alt, color: Colors.grey),
+                        prefixIcon: Icon(Icons.search, color: Colors.grey),
+                        suffixIcon: Icon(Icons.camera_alt, color: Colors.grey),
                       ),
-                      enabled:
-                          false, // Disable input to make the search bar non-editable
+                      enabled: false, // Non-editable search bar
                     ),
                   ),
                 ),
@@ -106,11 +100,13 @@ class HomePageView extends StackedView<HomePageViewModel> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       "Category",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),
@@ -118,8 +114,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
               verticalSpaceTiny,
               Container(
                 height: 165,
-                width:
-                    MediaQuery.of(context).size.width * 0.9, // Responsive width
+                width: screenWidth * 0.9, // Responsive width
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
@@ -133,10 +128,6 @@ class HomePageView extends StackedView<HomePageViewModel> {
                             names: 'Kids', img: 'assets/images/img_8.png'),
                         Categorycard(
                             names: 'Footwear', img: 'assets/images/img_9.png'),
-                        Categorycard(
-                            names: 'Womens', img: 'assets/images/img_7.png'),
-                        Categorycard(
-                            names: 'Mens', img: 'assets/images/img_6.png'),
                       ],
                     ),
                   ],
@@ -149,21 +140,19 @@ class HomePageView extends StackedView<HomePageViewModel> {
                   children: [
                     SizedBox(
                       height: 150, // Height of the PageView
-                      width: MediaQuery.of(context).size.width *
-                          0.9, // Responsive width
+                      width: screenWidth * 0.9, // Responsive width
                       child: PageView(
-                        reverse: false,
                         controller: viewModel.pageController,
                         onPageChanged: (int page) {
                           viewModel.setCurrentPage(page);
-                          viewModel.startAutoScroll;
+                          viewModel.startAutoScroll();
                         },
                         children: [
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                image: const AssetImage(
+                              image: const DecorationImage(
+                                image: AssetImage(
                                     'assets/images/img_10.png'), // Replace with your image asset path
                                 fit: BoxFit.cover,
                               ),
@@ -172,9 +161,8 @@ class HomePageView extends StackedView<HomePageViewModel> {
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                image: const AssetImage(
-                                    'assets/images/img_10.png'), // Replace with your image asset path
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/img_10.png'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -182,9 +170,8 @@ class HomePageView extends StackedView<HomePageViewModel> {
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                image: const AssetImage(
-                                    'assets/images/img_10.png'), // Replace with your image asset path
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/img_10.png'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -207,22 +194,24 @@ class HomePageView extends StackedView<HomePageViewModel> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'Popular',
                             style: TextStyle(
                                 fontSize: 25, fontWeight: FontWeight.w500),
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: const Text('See All',
-                                style: TextStyle(color: Colors.orange)),
+                            child: const Text(
+                              'See All',
+                              style: TextStyle(color: Colors.orange),
+                            ),
                           ),
                         ],
                       ),
                     ),
                     Container(
                       height: 260,
-                      width: MediaQuery.of(context).size.width,
+                      width: screenWidth, // Responsive width
                       child: Row(
                         children: [
                           Expanded(
@@ -257,7 +246,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
                     verticalSpaceMedium,
                     Container(
                       height: 260,
-                      width: MediaQuery.of(context).size.width,
+                      width: screenWidth, // Responsive width
                       child: Row(
                         children: [
                           Expanded(
@@ -292,15 +281,17 @@ class HomePageView extends StackedView<HomePageViewModel> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'New Arrival',
                             style: TextStyle(
                                 fontSize: 25, fontWeight: FontWeight.w500),
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: const Text('See All',
-                                style: TextStyle(color: Colors.orange)),
+                            child: const Text(
+                              'See All',
+                              style: TextStyle(color: Colors.orange),
+                            ),
                           ),
                         ],
                       ),
@@ -308,7 +299,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
                     verticalSpaceMedium,
                     Container(
                       height: 260,
-                      width: MediaQuery.of(context).size.width,
+                      width: screenWidth, // Responsive width
                       child: Row(
                         children: [
                           Expanded(
@@ -328,7 +319,7 @@ class HomePageView extends StackedView<HomePageViewModel> {
                               image: 'assets/images/img_17.png',
                               name: 'Western Laddy',
                               description: 'Flounce Sleeveless',
-                              price: '5545',
+                              price: '545',
                               discountPrice: '115',
                               offerPercentage: '60% off',
                               rating: '5.5*',
@@ -338,37 +329,6 @@ class HomePageView extends StackedView<HomePageViewModel> {
                       ),
                     ),
                     verticalSpaceMedium,
-                    Container(
-                      height: 260,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: PopularPage(
-                              image: 'assets/images/img_21.png',
-                              name: 'Indiaspopup',
-                              description: 'Pista green anarkali..',
-                              price: '845',
-                              discountPrice: '65',
-                              offerPercentage: '40% off',
-                              rating: '4.5*',
-                            ),
-                          ),
-                          horizontalSpaceMedium,
-                          Expanded(
-                            child: PopularPage(
-                              image: 'assets/images/img_22.png',
-                              name: 'Azza fashion',
-                              description: 'Red free anarkali',
-                              price: '3545',
-                              discountPrice: '1115',
-                              offerPercentage: '60% off',
-                              rating: '5.5*',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -380,6 +340,8 @@ class HomePageView extends StackedView<HomePageViewModel> {
   }
 
   @override
-  HomePageViewModel viewModelBuilder(BuildContext context) =>
+  HomePageViewModel viewModelBuilder(
+      BuildContext context,
+      ) =>
       HomePageViewModel();
 }

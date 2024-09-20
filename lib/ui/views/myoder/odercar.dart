@@ -86,7 +86,9 @@ class Odercar extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TrackoderView()), // Navigate to TrackoderView
+                MaterialPageRoute(
+                    builder: (context) =>
+                        TrackoderView()), // Navigate to TrackoderView
               );
             },
           ),

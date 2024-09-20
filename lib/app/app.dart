@@ -20,6 +20,7 @@ import 'package:peeka/ui/views/detailpage/detailpage_view.dart';
 import 'package:peeka/ui/views/checkout/checkout_view.dart';
 import 'package:peeka/ui/views/myoder/myoder_view.dart';
 import 'package:peeka/ui/views/trackoder/trackoder_view.dart';
+import 'package:peeka/ui/views/newaddress/newaddress_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -42,6 +43,7 @@ import 'package:peeka/ui/views/trackoder/trackoder_view.dart';
     MaterialRoute(page: CheckoutView),
     MaterialRoute(page: MyoderView),
     MaterialRoute(page: TrackoderView),
+    MaterialRoute(page: NewaddressView),
 // @stacked-route
   ],
   dependencies: [

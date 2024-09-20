@@ -5,7 +5,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i20;
+import 'package:flutter/material.dart' as _i21;
 import 'package:flutter/material.dart';
 import 'package:peeka/ui/views/account/account_view.dart' as _i10;
 import 'package:peeka/ui/views/checkout/checkout_view.dart' as _i17;
@@ -19,6 +19,7 @@ import 'package:peeka/ui/views/login/login_view.dart' as _i5;
 import 'package:peeka/ui/views/login_sign/login_sign_view.dart' as _i4;
 import 'package:peeka/ui/views/menu/menu_view.dart' as _i12;
 import 'package:peeka/ui/views/myoder/myoder_view.dart' as _i18;
+import 'package:peeka/ui/views/newaddress/newaddress_view.dart' as _i20;
 import 'package:peeka/ui/views/nottification/nottification_view.dart' as _i15;
 import 'package:peeka/ui/views/search/search_view.dart' as _i13;
 import 'package:peeka/ui/views/shoppingcart/shoppingcart_view.dart' as _i9;
@@ -26,7 +27,7 @@ import 'package:peeka/ui/views/sign/sign_view.dart' as _i6;
 import 'package:peeka/ui/views/startup/startup_view.dart' as _i3;
 import 'package:peeka/ui/views/trackoder/trackoder_view.dart' as _i19;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i21;
+import 'package:stacked_services/stacked_services.dart' as _i22;
 
 class Routes {
   static const homeView = '/home-view';
@@ -65,6 +66,8 @@ class Routes {
 
   static const trackoderView = '/trackoder-view';
 
+  static const newaddressView = '/newaddress-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -84,6 +87,7 @@ class Routes {
     checkoutView,
     myoderView,
     trackoderView,
+    newaddressView,
   };
 }
 
@@ -161,114 +165,124 @@ class StackedRouter extends _i1.RouterBase {
       Routes.trackoderView,
       page: _i19.TrackoderView,
     ),
+    _i1.RouteDef(
+      Routes.newaddressView,
+      page: _i20.NewaddressView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LoginSignView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LoginSignView(),
         settings: data,
       );
     },
     _i5.LoginView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.LoginView(),
         settings: data,
       );
     },
     _i6.SignView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.SignView(),
         settings: data,
       );
     },
     _i7.HomePageView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.HomePageView(),
         settings: data,
       );
     },
     _i8.FavouriteView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.FavouriteView(),
         settings: data,
       );
     },
     _i9.ShoppingcartView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.ShoppingcartView(),
         settings: data,
       );
     },
     _i10.AccountView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.AccountView(),
         settings: data,
       );
     },
     _i11.DasboardView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.DasboardView(),
         settings: data,
       );
     },
     _i12.MenuView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.MenuView(),
         settings: data,
       );
     },
     _i13.SearchView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.SearchView(),
         settings: data,
       );
     },
     _i14.JacketsView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.JacketsView(),
         settings: data,
       );
     },
     _i15.NottificationView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.NottificationView(),
         settings: data,
       );
     },
     _i16.DetailpageView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.DetailpageView(),
         settings: data,
       );
     },
     _i17.CheckoutView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.CheckoutView(),
         settings: data,
       );
     },
     _i18.MyoderView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.MyoderView(),
         settings: data,
       );
     },
     _i19.TrackoderView: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i21.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.TrackoderView(),
+        settings: data,
+      );
+    },
+    _i20.NewaddressView: (data) {
+      return _i21.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i20.NewaddressView(),
         settings: data,
       );
     },
@@ -281,7 +295,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i21.NavigationService {
+extension NavigatorStateExtension on _i22.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -534,6 +548,20 @@ extension NavigatorStateExtension on _i21.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToNewaddressView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.newaddressView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -780,6 +808,20 @@ extension NavigatorStateExtension on _i21.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.trackoderView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithNewaddressView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.newaddressView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
