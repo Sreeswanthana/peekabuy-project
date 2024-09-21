@@ -42,34 +42,33 @@ class HomePageView extends StackedView<HomePageViewModel> {
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                // Handle shopping cart icon press
-              },
+              onPressed: viewModel.shopping,
+
             ),
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             children: [
-              ListTile(
-                leading: CircleAvatar(
-                  radius: screenWidth * 0.1, // Responsive radius
-                  backgroundImage: const AssetImage('assets/images/img_5.png'),
-                ),
-                title: const Text(
-                  'Hello sree swanthana!',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: viewModel.myac,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: screenWidth * 0.1,
+                    backgroundImage: const AssetImage('assets/images/img_5.png'),
                   ),
-                ),
-                subtitle: Row(
-                  children: const [
-                    Icon(Icons.location_on, color: Colors.grey),
-                    SizedBox(width: 8.0),
-                    Text('Ernakulam-674543'),
-                  ],
+                  title: const Text(
+                    'Hello sree swanthana!',
+                    style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Row(
+                    children: const [
+                      Icon(Icons.location_on, color: Colors.grey),
+                      SizedBox(width: 8.0),
+                      Text('Ernakulam-674543'),
+                    ],
+                  ),
                 ),
               ),
               verticalSpaceSmall,

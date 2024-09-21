@@ -1,37 +1,51 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
 import '../../../app/app.locator.dart';
 
 class LoginViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  bool _isChecked = false;
-  String? _errorMessage;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  String? emailError;
+  String? passwordError;
+  bool isChecked = false;
 
-  bool get isChecked => _isChecked;
-  String? get errorMessage => _errorMessage;
-
+  // Toggle checkbox
   void toggleCheckbox(bool value) {
-    _isChecked = value;
-    _errorMessage = null; // Reset error message when checkbox is toggled
+    isChecked = value;
     notifyListeners();
   }
 
-  void dash() {
-    _navigationService.navigateTo('/dasboard-view');
-  }
-
-  void sign() {
-    _navigationService.navigateTo('/sign-view');
-  }
-
+  // Login function
   void login() {
-    if (_isChecked) {
-      _errorMessage = null;
-      _navigationService.navigateTo('/home-page-view');
-    } else {
-      _errorMessage = 'You must agree to the terms and conditions';
-      notifyListeners();
+    // Validate email and password
+    emailError = validateEmail(emailController.text);
+    passwordError = validatePassword(passwordController.text);
+    notifyListeners(); // Update the UI
+
+    // If both email and password are valid, navigate to home page
+    if (emailError == null && passwordError == null) {
+      // Proceed with login logic and navigate
+      _navigationService.navigateTo('/dasboard-view');
     }
+  }
+
+  // Email validation function
+  String? validateEmail(String email) {
+    if (email.isEmpty) return 'Email cannot be empty';
+    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(email)) {
+      return 'Enter a valid email';
+    }
+    return null;
+  }
+
+  // Password validation function
+  String? validatePassword(String password) {
+    if (password.isEmpty) return 'Password cannot be empty';
+    if (password.length < 6) return 'Password must be at least 6 characters';
+    return null;
   }
 }

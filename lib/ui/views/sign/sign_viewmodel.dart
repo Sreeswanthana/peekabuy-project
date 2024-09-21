@@ -1,63 +1,68 @@
-import 'package:peeka/app/app.router.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
 import '../../../app/app.locator.dart';
 
 class SignViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  // Fields for validation
-  String? _email;
-  String? _password;
-  String? _confirmPassword;
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  String? get email => _email;
-  String? get password => _password;
-  String? get confirmPassword => _confirmPassword;
+  String? nameError;
+  String? emailError;
+  String? passwordError;
+  String? confirmPasswordError;
 
-  bool get canSignUp =>
-      _isValidEmail() && _isValidPassword() && _passwordsMatch();
+  bool validateFields() {
+    nameError = null;
+    emailError = null;
+    passwordError = null;
+    confirmPasswordError = null;
 
-  // Setters for the fields
-  void setEmail(String value) {
-    _email = value;
+    // Validate Name
+    if (nameController.text.isEmpty) {
+      nameError = "Name cannot be empty";
+    }
+
+    // Validate Email
+    if (emailController.text.isEmpty) {
+      emailError = "Email cannot be empty";
+    } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(emailController.text)) {
+      emailError = "Invalid email address";
+    }
+
+    // Validate Password
+    if (passwordController.text.isEmpty) {
+      passwordError = "Password cannot be empty";
+    } else if (passwordController.text.length < 6) {
+      passwordError = "Password must be at least 6 characters long";
+    }
+
+    // Validate Confirm Password
+    if (confirmPasswordController.text != passwordController.text) {
+      confirmPasswordError = "Passwords do not match";
+    }
+
+    // Notify listeners to rebuild UI
     notifyListeners();
-  }
 
-  void setPassword(String value) {
-    _password = value;
-    notifyListeners();
-  }
-
-  void setConfirmPassword(String value) {
-    _confirmPassword = value;
-    notifyListeners();
-  }
-
-  // Validation methods
-  bool _isValidEmail() {
-    return _email != null && _email!.contains('@');
-  }
-
-  bool _isValidPassword() {
-    return _password != null && _password!.length >= 6;
-  }
-
-  bool _passwordsMatch() {
-    return _password == _confirmPassword;
-  }
-
-  // Sign-up method
-  void sign() {
-    _navigationService.navigateTo('/home-page-view');
-  }
-
-  // Login method
-  void login() {
-    _navigationService.navigateTo('/login-sign-view');
+    // Return true if all fields are valid
+    return nameError == null && emailError == null && passwordError == null && confirmPasswordError == null;
   }
 
   void dash() {
     _navigationService.navigateTo('/dasboard-view');
+
+    // Navigate to the next screen
+  }
+
+  void login() {
+    _navigationService.navigateTo('/login-view');
+
+    // Navigate to the login screen
   }
 }

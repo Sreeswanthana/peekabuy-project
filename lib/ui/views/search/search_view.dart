@@ -7,10 +7,10 @@ class SearchView extends StackedView<SearchViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    SearchViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      SearchViewModel viewModel,
+      Widget? child,
+      ) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -21,10 +21,8 @@ class SearchView extends StackedView<SearchViewModel> {
             },
           ),
           title: TextField(
-            controller: viewModel
-                .searchController, // Connect controller for clear functionality
-            onChanged: viewModel
-                .updateSearchQuery, // Update search results on input change
+            controller: viewModel.searchController, // Connect controller for clear functionality
+            onChanged: viewModel.updateSearchQuery, // Update search results on input change
             decoration: InputDecoration(
               hintText: 'Search...',
               border: InputBorder.none,
@@ -32,13 +30,12 @@ class SearchView extends StackedView<SearchViewModel> {
               prefixIcon: const Icon(Icons.search, color: Colors.grey),
               suffixIcon: IconButton(
                 icon: const Icon(Icons.clear, color: Colors.grey),
-                onPressed: viewModel
-                    .clearSearch, // Clear the search when clear icon is clicked
+                onPressed: viewModel.clearSearch, // Clear the search when clear icon is clicked
               ),
             ),
           ),
         ),
-        body: Padding(
+        body: SingleChildScrollView( // Make the body scrollable
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,20 +107,20 @@ class SearchView extends StackedView<SearchViewModel> {
               // Section for search results
               viewModel.filteredItems.isNotEmpty
                   ? ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: viewModel.filteredItems.length,
-                      itemBuilder: (context, index) {
-                        final item = viewModel.filteredItems[index];
-                        return ListTile(
-                          title: Text(item),
-                          onTap: viewModel.Jacketss,
-                        );
-                      },
-                    )
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: viewModel.filteredItems.length,
+                itemBuilder: (context, index) {
+                  final item = viewModel.filteredItems[index];
+                  return ListTile(
+                    title: Text(item),
+                    onTap: viewModel.Jacketss,
+                  );
+                },
+              )
                   : const Center(
-                      child: Text('No results found'),
-                    ),
+                child: Text('No results found'),
+              ),
             ],
           ),
         ),

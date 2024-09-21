@@ -330,9 +330,7 @@ class AccountView extends StackedView<AccountViewModel> {
                     // Elevated Button
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {
-                          // Handle logout logic here
-                        },
+                        onPressed: viewModel.logout,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white, // White background
                           side: const BorderSide(

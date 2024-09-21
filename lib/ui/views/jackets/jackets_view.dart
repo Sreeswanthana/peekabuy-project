@@ -49,16 +49,15 @@ class JacketsView extends StackedView<JacketsViewModel> {
           actions: [
             IconButton(
               icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
+              onPressed: viewModel.search,),
             IconButton(
               icon: const Icon(Icons.favorite_border),
-              onPressed: () {},
-            ),
+              onPressed: viewModel.fav,),
+
             IconButton(
               icon: const Icon(Icons.shopping_cart),
-              onPressed: () {},
-            ),
+              onPressed: viewModel.shopping,),
+
           ],
         ),
         body: SingleChildScrollView(
@@ -74,7 +73,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '345',
                     discountPrice: '765',
                     offerPercentage: '40% off',
-                    rating: '4.5*',
+                    rating: '4.5*', onTap: viewModel.tap,
                   ),
                   Carts(
                     image: 'assets/images/img_42.png',
@@ -83,7 +82,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '545',
                     discountPrice: '115',
                     offerPercentage: '60% off',
-                    rating: '5.5*',
+                    rating: '5.5*', onTap: viewModel.tap,
                   ),
                 ]),
                 verticalSpaceSmall,
@@ -95,7 +94,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '1115',
                     discountPrice: '2365',
                     offerPercentage: '50% off',
-                    rating: '5.5*',
+                    rating: '5.5*',  onTap: viewModel.tap,
                   ),
                   Carts(
                     image: 'assets/images/img_47.png',
@@ -104,11 +103,11 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '545',
                     discountPrice: '1115',
                     offerPercentage: '60% off',
-                    rating: '5.5*',
+                    rating: '5.5*', onTap: viewModel.tap,
                   ),
                 ]),
             verticalSpaceSmall,
-      
+
                 buildCartRow(screenWidth, screenHeight, [
                   Carts(
                     image: 'assets/images/img_48.png',
@@ -117,7 +116,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '745',
                     discountPrice: '1235',
                     offerPercentage: '40% off',
-                    rating: '4.5*',
+                    rating: '4.5*', onTap: viewModel.tap,
                   ),
                   Carts(
                     image: 'assets/images/img_46.png',
@@ -126,7 +125,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '445',
                     discountPrice: '1115',
                     offerPercentage: '60% off',
-                    rating: '5.5*',
+                    rating: '5.5*',  onTap: viewModel.tap,
                   ),
                 ]),
                 verticalSpaceSmall,
@@ -138,7 +137,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '345',
                     discountPrice: '765',
                     offerPercentage: '40% off',
-                    rating: '4.5*',
+                    rating: '4.5*',  onTap: viewModel.tap,
                   ),
                   Carts(
                     image: 'assets/images/img_47.png',
@@ -147,7 +146,7 @@ class JacketsView extends StackedView<JacketsViewModel> {
                     price: '545',
                     discountPrice: '115',
                     offerPercentage: '60% off',
-                    rating: '5.5*',
+                    rating: '5.5*', onTap: viewModel.tap,
                   ),
                 ]),
               ],

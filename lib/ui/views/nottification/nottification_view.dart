@@ -119,9 +119,7 @@ class NottificationView extends StackedView<NottificationViewModel> {
                   const SizedBox(height: 20), // Spacing
 
                   ElevatedButton(
-                    onPressed: () {
-                      // Action for continuing to shopping
-                    },
+                    onPressed: viewModel.contshp,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.orange, // Button background color

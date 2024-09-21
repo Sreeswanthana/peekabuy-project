@@ -19,8 +19,14 @@ class HomePageViewModel extends BaseViewModel {
     _pageController.jumpToPage(page);
     notifyListeners();
   }
+  void myac() {
+    _navigationService.navigateTo('/account-view');
+  }
 
   void menu() {
+    _navigationService.navigateTo('/menu-view');
+  }
+  void shopping() {
     _navigationService.navigateTo('/menu-view');
   }
 

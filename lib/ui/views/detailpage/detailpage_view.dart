@@ -473,9 +473,7 @@ horizontalSpaceSmall,                            // Row of size options with con
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton.icon(
-                onPressed: () {
-                  // Action for wishlist button
-                },
+                onPressed: viewModel.wish,
                 icon: Icon(Icons.favorite_border),
                 label: Text('Wishlist'),
                 style: ElevatedButton.styleFrom(

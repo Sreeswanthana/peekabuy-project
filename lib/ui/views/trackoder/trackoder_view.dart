@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peeka/ui/views/trackoder/traccart.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../common/ui_helpers.dart';
@@ -95,14 +96,33 @@ class TrackoderView extends StackedView<TrackoderViewModel> {
               ),
             ),
             SizedBox(height: screenHeight * 0.015),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildTrackingStep('Order Placed', true),
-                _buildTrackingStep('Shipped', true),
-                _buildTrackingStep('Out for Delivery', false),
-                _buildTrackingStep('Delivered', false),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TrackOrderStep(
+                    step: 'Placed Order',
+                    isCompleted: true,
+                    isLastStep: false, // Not the last step
+                  ),
+                  TrackOrderStep(
+                    step: 'Shipped',
+                    isCompleted: true,
+                    isLastStep: false, // Not the last step
+                  ),
+                  TrackOrderStep(
+                    step: 'Out for Delivery',
+                    isCompleted: false,
+                    isLastStep: false, // Not the last step
+                  ),
+                  TrackOrderStep(
+                    step: 'Delivered Successfully',
+                    isCompleted: false,
+                    isLastStep: true, // This is the last step
+                  ),
+                ],
+              ),
             ),
       
             SizedBox(height: screenHeight * 0.03), // Add space before buttons
@@ -137,9 +157,7 @@ class TrackoderView extends StackedView<TrackoderViewModel> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    onPressed: () {
-                      // Buy again action
-                    },
+                    onPressed: viewModel.buyagain,
                     child: const Text('Buy Again'),
                   ),
                 ),
@@ -160,7 +178,7 @@ class TrackoderView extends StackedView<TrackoderViewModel> {
                 onPressed: () {
                   // Action for the elevated button
                 },
-                child: const Text('Proceed'),
+                child: const Text('Help Center'),
               ),
             ),
             SizedBox(height: screenHeight * 0.04), // Add space before address
@@ -200,7 +218,7 @@ class TrackoderView extends StackedView<TrackoderViewModel> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      // onTap: viewModel.detailpage,
+                      onTap: viewModel.detail,
                       child: PopularPage(
                         image: 'assets/images/img_57.png',
                         name: 'Shein',

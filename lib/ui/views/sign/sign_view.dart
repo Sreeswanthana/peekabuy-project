@@ -8,13 +8,14 @@ class SignView extends StackedView<SignViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    SignViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      SignViewModel viewModel,
+      Widget? child,
+      ) {
     final size = MediaQuery.of(context).size;
     final containerHeight = size.height * 0.85; // 70% of the screen height
     final innerContainerHeight = size.height * 0.80;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFF39B22),
@@ -30,41 +31,37 @@ class SignView extends StackedView<SignViewModel> {
                 child: Center(
                   child: Image.asset(
                     'assets/images/img.png', // Replace with your image path
-                    height: size.height * 0.25, // Adjust the height as needed
-                    width: size.width * 0.6, // Adjust the width as needed
+                    height: size.height * 0.25,
+                    width: size.width * 0.6,
                   ),
                 ),
               ),
               Positioned(
-                top: size.height * 0.26, // Position the container correctly
+                top: size.height * 0.26,
                 left: 0,
                 right: 0,
                 child: Container(
                   height: containerHeight,
-                  width: double.infinity, // Make the container full width
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors
-                        .white30, // White background color with some transparency
+                    color: Colors.white30,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30), // Curved top left corner
-                      topRight: Radius.circular(30), // Curved top right corner
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
                     ),
                   ),
                   child: Stack(children: [
                     Positioned(
-                      bottom: 0, // Position the orange container at the bottom
+                      bottom: 0,
                       left: 0,
                       right: 0,
                       child: Container(
                         height: innerContainerHeight,
                         decoration: BoxDecoration(
-                          color: Colors
-                              .white, // White background color for the inner container
+                          color: Colors.white,
                           borderRadius: BorderRadius.only(
-                            topLeft:
-                                Radius.circular(30), // Curved top left corner
-                            topRight:
-                                Radius.circular(30), // Curved top right corner
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30),
                           ),
                         ),
                         child: Padding(
@@ -72,13 +69,10 @@ class SignView extends StackedView<SignViewModel> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                  height: size.height *
-                                      0.05), // Spacing based on screen height
+                              SizedBox(height: size.height * 0.05),
                               Center(
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 1.0),
+                                  padding: const EdgeInsets.symmetric(vertical: 1.0),
                                   child: Text(
                                     'Set Up Your Account',
                                     style: TextStyle(
@@ -89,107 +83,74 @@ class SignView extends StackedView<SignViewModel> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                  height: size.height *
-                                      0.02), // Space between text and text fields
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.person,
-                                        color: Colors.orange),
-                                    hintText: 'Name',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                  ),
-                                ),
+                              SizedBox(height: size.height * 0.02),
+                              buildTextField(
+                                context,
+                                viewModel.nameController,
+                                'Name',
+                                Icons.person,
+                                viewModel.nameError,
                               ),
                               SizedBox(height: size.height * 0.02),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                child: TextField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    prefixIcon:
-                                        Icon(Icons.email, color: Colors.orange),
-                                    hintText: 'Email',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                  ),
-                                ),
+                              buildTextField(
+                                context,
+                                viewModel.emailController,
+                                'Email',
+                                Icons.email,
+                                viewModel.emailError,
                               ),
                               SizedBox(height: size.height * 0.02),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                child: TextField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    prefixIcon:
-                                        Icon(Icons.lock, color: Colors.orange),
-                                    suffixIcon: Icon(Icons.visibility_off,
-                                        color: Colors.orange),
-                                    hintText: 'Password',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                  ),
-                                ),
+                              buildTextField(
+                                context,
+                                viewModel.passwordController,
+                                'Password',
+                                Icons.lock,
+                                viewModel.passwordError,
+                                isObscure: true,
                               ),
-
                               SizedBox(height: size.height * 0.02),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                child: TextField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    prefixIcon:
-                                        Icon(Icons.lock, color: Colors.orange),
-                                    suffixIcon: Icon(Icons.visibility_off,
-                                        color: Colors.orange),
-                                    hintText: ' Conform Password',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                  ),
-                                ),
+                              buildTextField(
+                                context,
+                                viewModel.confirmPasswordController,
+                                'Confirm Password',
+                                Icons.lock,
+                                viewModel.confirmPasswordError,
+                                isObscure: true,
                               ),
                               SizedBox(height: size.height * 0.02),
                               Center(
                                 child: ElevatedButton(
-                                  onPressed: viewModel.dash,
-                                  // Add login button action here
+                                  onPressed: () {
+                                    print("Signup button pressed"); // Debugging line
+                                    if (viewModel.validateFields()) {
+                                      print("Fields validated, navigating to dashboard");
+                                      viewModel.dash();
+                                    } else {
+                                      print("Validation failed");
+                                    }
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     foregroundColor: Colors.white,
-                                    backgroundColor: const Color(
-                                        0xFFF39B22), // White text color
+                                    backgroundColor: const Color(0xFFF39B22),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15),
                                     ),
-                                    minimumSize: Size(200,
-                                        50), // Full width button with fixed height
+                                    minimumSize: Size(200, 50),
                                   ),
                                   child: Text(
                                     'Signup',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w800),
+                                    style: TextStyle(fontWeight: FontWeight.w800),
                                   ),
                                 ),
                               ),
                               SizedBox(height: size.height * 0.01),
-                              Center(child: Text(("or continue with"))),
+                              Center(child: Text("or continue with")),
                               Center(
                                 child: Container(
                                   width: 200,
                                   height: 60,
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Image.asset(
                                         "assets/images/img_2.png",
@@ -211,21 +172,20 @@ class SignView extends StackedView<SignViewModel> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 90.0),
+                                padding: const EdgeInsets.symmetric(horizontal: 90.0),
                                 child: Row(
                                   children: [
-                                    Text("Don’t have an account ? "),
+                                    Text("Don’t have an account? "),
                                     TextButton(
                                       onPressed: viewModel.login,
                                       child: Text(
                                         "Login",
                                         style: TextStyle(color: Colors.orange),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -241,9 +201,36 @@ class SignView extends StackedView<SignViewModel> {
     );
   }
 
+  Widget buildTextField(BuildContext context, TextEditingController controller, String hintText, IconData icon, String? errorText, {bool isObscure = false}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            controller: controller,
+            obscureText: isObscure,
+            decoration: InputDecoration(
+              prefixIcon: Icon(icon, color: Colors.orange),
+              hintText: hintText,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+            ),
+          ),
+          if (errorText != null && errorText.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0),
+              child: Text(
+                errorText,
+                style: TextStyle(color: Colors.red, fontSize: 12),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
   @override
-  SignViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      SignViewModel();
+  SignViewModel viewModelBuilder(BuildContext context) => SignViewModel();
 }

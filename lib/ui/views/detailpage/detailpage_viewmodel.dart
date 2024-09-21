@@ -18,6 +18,8 @@ class DetailpageViewModel extends BaseViewModel {
 
   void ShoppingCard() {
     _navigationService.navigateTo('/shoppingcart-view');
+  } void wish() {
+    _navigationService.navigateTo('/favourite-view');
   }
 
   void Myoder() {
